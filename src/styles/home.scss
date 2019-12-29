@@ -1,0 +1,25 @@
+body {
+    background: #ffffff url("~@/images/nakai.jpg") no-repeat 88% 50%;
+}
+
+#main-container {
+    #home-abstract {
+        width: 360px;
+        padding: 4%;
+        height: 400px;
+        height: fit-content;
+        background: #ffffff;
+        box-shadow: rgba(0,0,0,0.1) 0 0 16px 5px;
+        text-align: center;
+        margin: 0 auto;
+    
+        > h4 {
+            margin-bottom: 2rem;
+        }
+
+        #home-desciption {
+            font-size: large;
+            margin-top: 60px;
+        }
+    }
+}
