@@ -1,10 +1,5 @@
 @import "variables";
 @import "func";
-
-body {
-    background: theme(dark) url("~@/images/nakai.jpg") no-repeat 88% 50%;
-}
-
 #main-container {
     #home-abstract {
         width: 360px;

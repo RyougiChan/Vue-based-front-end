@@ -74,6 +74,16 @@ export default {
           ]
         },
         {
+          name: "Gallery",
+          hasSubMenu: true,
+          subMenu: [
+            {
+              name: "Design",
+              hasSubMenu: false
+            }
+          ]
+        },
+        {
           name: "About",
           hasSubMenu: false
         }
@@ -91,9 +101,13 @@ export default {
   },
   created () {
     let routerPath = this.$router.history.current.path;
+    window.console.log('routerPath',routerPath);
     let routerName = routerPath.substring(routerPath.lastIndexOf('/') + 1);
-    if(routerName === '') routerName = 'home';
-    window.console.log(routerName);
+    if(routerPath === '/') routerName = 'home';
+    if(/(\w+)\/(\d*)/.test(routerPath)) {
+      routerName = /(\w+)\/(\d*)/.exec(routerPath)[1];
+    }
+    window.console.log('routerName',routerName);
     this.activedMenuItem = routerName;
   },
 };

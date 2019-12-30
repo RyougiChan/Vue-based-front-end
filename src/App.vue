@@ -11,3 +11,7 @@
 @import "~@/styles/reset.scss";
 @import "~@/styles/global.scss";
 </style>
+
+<style scoped>
+@import "~@/styles/material-icons.css";
+</style>

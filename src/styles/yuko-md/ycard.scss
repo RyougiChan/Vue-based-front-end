@@ -1,0 +1,95 @@
+@import "../variables";
+@import "../func";
+
+.yuko-card_container {
+    max-width: 520px;
+    overflow: hidden;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    background: #ffffff;
+    margin: 30px auto;
+
+    h3 {
+        font-size: 32px;
+        line-height: 1.5em;
+        margin: 0 0 10px;
+        padding: 0;
+    }
+    
+    .yuko-card_avatar {
+        position: relative;
+        height: 150px;
+        background: theme(d-text);
+        color: theme(dark);
+        font-weight: 800;
+
+        .yuko-card_avatar-icon {
+            text-align: right;
+            padding: .5rem 1rem .5rem 1rem;
+
+            .yuko-material-icons {
+                float: right;
+            }
+
+            i {
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+            }
+        }
+
+        .yuko-card_avatar-title {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            text-indent: 16px;
+            font-size: 36px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -ms-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    .yuko-card_content {
+        min-height: 120px;
+        max-height: 160px;
+        border-bottom: 1px solid #cccccc;
+        padding: 16px;
+        line-height: 22px;
+        overflow: hidden;
+        color: #878787;
+    }
+
+    .yuko-card_trigger {
+        height: 60px;
+        line-height: 60px;
+        padding: 0 16px;
+        color: #3f51b5;
+        font-weight: 800;
+        text-align: right;
+        
+        >div {
+            display: inline-block;
+            cursor: pointer;
+            padding: 12px 0;
+
+            >span {
+                position: relative;
+                overflow: hidden;
+                display: block;
+                height: 36px;
+                line-height: 36px;
+                padding: 0 12px;
+                border-radius: 1px;
+                user-select: none;
+
+                &:hover {
+                    background: rgba(158, 158, 158, 0.2);
+                }
+            }
+        }
+    }
+}

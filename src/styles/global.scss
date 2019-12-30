@@ -1,6 +1,11 @@
 @import "variables";
 @import "func";
 
+body {
+    background: theme(dark) url("~@/images/nakai.jpg") no-repeat 88% 50%;
+}
+
+
 .clearfix {
     *zoom: 1;
 
@@ -154,6 +159,17 @@
             }
         }
     }
+}
+
+    
+.container-fluid {
+            
+    max-width: 1293px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+
 }
 
 // Audio player

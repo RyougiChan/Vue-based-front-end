@@ -35,7 +35,6 @@ header {
                     z-index: 12;
                     left: 0;
                     margin: 0;
-                    padding: 5px;
                     text-align: center;
                     display: none;
     
@@ -46,7 +45,7 @@ header {
     
                         a {
                             border: 0;
-                            padding: 0 37px;
+                            padding: 0;
                             font-weight: normal;
                         }
     
@@ -54,8 +53,7 @@ header {
                             font-weight: 900;
                         }
                     }
-                    
-                    
+
                 }
     
                 &:hover .sub-menu {
@@ -74,12 +72,6 @@ header {
         }
     }
     .container-fluid {
-        max-width: 1293px;
-        margin-right: auto;
-        margin-left: auto;
-        padding-right: 15px;
-        padding-left: 15px;
-
         .row-header {
             display: -webkit-box;
             display: -moz-box;
@@ -106,7 +98,7 @@ header {
 
 
 /* Media query (min-width: 576px) */
-@media (min-width: 576px) {
+@media screen and(min-width: 576px) {
     .header-logo {
         -ms-flex: 0 0 25%;
         -webkit-box-flex: 0;
@@ -124,7 +116,7 @@ header {
 /* Media query (min-width: 576px) */
 
 /* Media query (max-width: 870px) */
-@media (max-width: 870px) {
+@media screen and(max-width: 870px) {
     header {
         // display: none;
         padding: 0;
@@ -231,7 +223,7 @@ header {
 /* Media query (max-width: 870px) */
 
 /* Media query (min-width: 1024px) */
-@media (min-width: 1024px) {
+@media screen and(min-width: 1024px) {
     header {
         padding: 30px 0;
 
@@ -256,3 +248,23 @@ header {
 
 }
 /* Media query (min-width: 1024px) */
+
+
+/* Media query (max-width: 1049px) */
+@media screen and(max-width: 1049px) {
+    header {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    
+        div {
+            > ul {
+                > li {
+                    a {
+                        padding: 0 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+/* Media query (max-width: 1049px) */
