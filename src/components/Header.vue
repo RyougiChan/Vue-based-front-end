@@ -1,41 +1,5 @@
 <template>
   <div id="r-header">
-    <div id="mobile-header" class="mobile">
-      <div id="top-mobile-row">
-        <a href="/">
-          <img src="../images/logo.png" title="Home" alt="Home" class="img-responsive" />
-        </a>
-        <a class="loke-menu-icon" id="menu-toggle" href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-        </a>
-      </div>
-      <div id="mobile-menu-wrapper">
-        <div class="menu-top-menu-container">
-          <ul id="menu-top-menu" class="menu">
-            <li
-                  :class="['menu-item', { 'current': (index == 0) }]"
-                  v-for="(item, index) in menuItems"
-                  :key="index"
-                >
-                  <router-link :to="{ name: item.name }">
-                    {{item.name}}
-                    <ul v-if="item.hasSubMenu" class="sub-menu">
-                      <li
-                        v-for="(subitem, subIndex) in item.subMenu"
-                        :key="subIndex"
-                        class="menu-item"
-                      >
-                        <router-link :to="{ name: subitem.name }">{{subitem.name}}</router-link>
-                      </li>
-                    </ul>
-                  </router-link>
-                </li>
-          </ul>
-        </div>
-      </div>
-    </div>
     <header>
       <div class="container-fluid">
         <div class="row-header">
@@ -49,24 +13,29 @@
                 class="img-responsive"
               />
             </a>
+            <a class="loke-menu-icon" id="menu-toggle" href="javascript:void(0)">
+              <span></span>
+              <span></span>
+              <span></span>
+            </a>
           </div>
           <div class="header-menu">
             <div class="menu-top-menu-container">
-              <ul id="menu-top-menu" class="menu">
+              <ul id="menu-top-menu" class="menu" @click="menuClickHandler">
                 <li
-                  :class="['menu-item', { 'current': (index == 0) }]"
+                  :class="['menu-item', { 'current': item.name.toLowerCase() === activedMenuItem }]"
                   v-for="(item, index) in menuItems"
                   :key="index"
                 >
-                  <router-link :to="{ name: item.name }">
+                  <router-link :name="item.name" :to="{ name: item.name }">
                     {{item.name}}
                     <ul v-if="item.hasSubMenu" class="sub-menu">
                       <li
                         v-for="(subitem, subIndex) in item.subMenu"
                         :key="subIndex"
-                        class="menu-item"
+                        :class="['menu-item', { 'current': subitem.name.toLowerCase() === activedMenuItem }]"
                       >
-                        <router-link :to="{ name: subitem.name }">{{subitem.name}}</router-link>
+                        <router-link :name="subitem.name" :to="{ name: subitem.name }">{{subitem.name}}</router-link>
                       </li>
                     </ul>
                   </router-link>
@@ -109,10 +78,26 @@ export default {
           hasSubMenu: false
         }
       ],
-      logo: "./images/logo.png"
+      activedMenuItem: "home"
     };
-  }
+  },
+  methods: {
+    menuClickHandler(event) {
+      let tar = event.target;
+      if(tar && tar.nodeName.toLowerCase() === 'a' && !(tar.parentNode.classList.contains('current'))) {
+        this.activedMenuItem = tar.name.toLowerCase();
+      }
+    }
+  },
+  created () {
+    let routerPath = this.$router.history.current.path;
+    let routerName = routerPath.substring(routerPath.lastIndexOf('/') + 1);
+    if(routerName === '') routerName = 'home';
+    window.console.log(routerName);
+    this.activedMenuItem = routerName;
+  },
 };
+
 </script>
 
 <style lang="scss" scoped>

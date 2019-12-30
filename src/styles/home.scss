@@ -1,5 +1,8 @@
+@import "variables";
+@import "func";
+
 body {
-    background: #ffffff url("~@/images/nakai.jpg") no-repeat 88% 50%;
+    background: theme(dark) url("~@/images/nakai.jpg") no-repeat 88% 50%;
 }
 
 #main-container {
@@ -8,8 +11,8 @@ body {
         padding: 4%;
         height: 400px;
         height: fit-content;
-        background: #ffffff;
-        box-shadow: rgba(0,0,0,0.1) 0 0 16px 5px;
+        background: theme(dark);
+        box-shadow: theme(d-text, 0.1) 0 0 16px 5px;
         text-align: center;
         margin: 0 auto;
     

@@ -1,0 +1,5 @@
+@import "variables";
+
+@function theme($key-name, $alpha:1.0) {
+    @return rgba(map-get($map: $theme, $key: $key-name),$alpha);
+}

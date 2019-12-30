@@ -1,0 +1,43 @@
+@import "color_swatches";
+
+$themes-purewhite: (primary: #ffffff, light: #ffffff, dark: #ffffff, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-white: (primary: #fafafa, light: #f1f1f1, dark: #c7c7c7, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-pureblack: (primary: #000000, light: #000000, dark: #000000, p-text: #ffffff, l-text: #ffffff, d-text: #ffffff);
+$themes-black: (primary: #212121, light: #484848, dark: #000000, p-text: #ffffff, l-text: #ffffff, d-text: #ffffff);
+$themes-brown: (primary: #3e2723, light: #6a4f4b, dark: #1b0000, p-text: #ffffff, l-text: #ffffff, d-text: #ffffff);
+$themes-bluegrey: (primary: #263238, light: #4f5b62, dark: #000a12, p-text: #ffffff, l-text: #ffffff, d-text: #ffffff);
+$themes-red: (primary: #b71c1c, light: #f05545, dark: #7f0000, p-text: #ffffff, l-text: #000000, d-text: #ffffff);
+$themes-pink: (primary: #880e4f, light: #bc477b, dark: #560027, p-text: #ffffff, l-text: #ffffff, d-text: #ffffff);
+$themes-purple: (primary: #4a148c, light: #7c43bd, dark: #12005e, p-text: #ffffff, l-text: #ffffff, d-text: #ffffff);
+$themes-deeppurple: (primary: #311b92, light: #6746c3, dark: #000063, p-text: #ffffff, l-text: #ffffff, d-text: #ffffff);
+$themes-indigo: (primary: #1a237e, light: #534bae, dark: #000051, p-text: #ffffff, l-text: #ffffff, d-text: #ffffff);
+$themes-blue: (primary: #0d47a1, light: #5472d3, dark: #002171, p-text: #ffffff, l-text: #000000, d-text: #ffffff);
+$themes-lightblue: (primary: #01579b, light: #4f83cc, dark: #002f6c, p-text: #ffffff, l-text: #000000, d-text: #ffffff);
+$themes-cyan: (primary: #006064, light: #428e92, dark: #00363a, p-text: #ffffff, l-text: #000000, d-text: #ffffff);
+$themes-teal: (primary: #004d40, light: #39796b, dark: #00251a, p-text: #ffffff, l-text: #ffffff, d-text: #ffffff);
+$themes-green: (primary: #1b5e20, light: #4c8c4a, dark: #003300, p-text: #ffffff, l-text: #000000, d-text: #ffffff);
+$themes-lightgreen: (primary: #33691e, light: #629749, dark: #003d00, p-text: #ffffff, l-text: #000000, d-text: #ffffff);
+$themes-lime: (primary: #827717, light: #b4a647, dark: #524c00, p-text: #ffffff, l-text: #000000, d-text: #ffffff);
+$themes-yellow: (primary: #f57f17, light: #ffb04c, dark: #bc5100, p-text: #000000, l-text: #000000, d-text: #ffffff);
+$themes-amber: (primary: #ff6f00, light: #ffa040, dark: #c43e00, p-text: #000000, l-text: #000000, d-text: #ffffff);
+$themes-orange: (primary: #e65100, light: #ff833a, dark: #ac1900, p-text: #ffffff, l-text: #000000, d-text: #ffffff);
+$themes-deeporange: (primary: #bf360c, light: #f9683a, dark: #870000, p-text: #ffffff, l-text: #000000, d-text: #ffffff);
+
+$themes-red-a100: (primary: #ff8a80, light: #ffbcaf, dark: #c85a54, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-pink-a100: (primary: #ff80ab, light: #ffb2dd, dark: #c94f7c, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-purple-a100: (primary: #ea80fc, light: #ffb2ff, dark: #b64fc8, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-deeppurple-a100: (primary: #b388ff, light: #e7b9ff, dark: #805acb, p-text: #000000, l-text: #000000, d-text: #ffffff);
+$themes-indigo-a100: (primary: #8c9eff, light: #c0cfff, dark: #5870cb, p-text: #000000, l-text: #000000, d-text: #ffffff);
+$themes-blue-a100: (primary: #82b1ff, light: #b6e3ff, dark: #4d82cb, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-lightblue-a100: (primary: #80d8ff, light: #b5ffff, dark: #49a7cc, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-cyan-a100: (primary: #84ffff, light: #baffff, dark: #4bcbcc, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-teal-a100: (primary: #a7ffeb, light: #dbffff, dark: #75ccb9, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-green-a100: (primary: #b9f6ca, light: #ecfffd, dark: #87c197, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-lightgreen-a100: (primary: #ccff90, light: #ffffc2, dark: #99cc60, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-yellow-a100: (primary: #ffff8d, light: #ffffbf, dark: #cacc5d, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-lime-a100: (primary: #f4ff81, light: #ffffb3, dark: #bfcc50, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-amber-a100: (primary: #ffe57f, light: #ffffb0, dark: #cab350, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-orange-a100: (primary: #ffd180, light: #ffffb1, dark: #caa052, p-text: #000000, l-text: #000000, d-text: #000000);
+$themes-deeporange-a100: (primary: #ff9e80, light: #ffd0b0, dark: #c96f53, p-text: #000000, l-text: #000000, d-text: #000000);
+
+$theme: $themes-purewhite;

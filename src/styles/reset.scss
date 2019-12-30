@@ -1,3 +1,6 @@
+@import "variables";
+@import "func";
+
 html,body,div,ul,ol,li,span,img,dl,dt,dd,a,form,input,label,h1,h2,h3,h4,h5,h6,table,tr,td,th,p,i {
     margin: 0;
     padding: 0;
@@ -13,7 +16,7 @@ html {
 
 @font-face {
     font-family: Comfortaa;
-    src: url("/fonts/Comfortaa.ttf") format('truetype');
+    src: url("~@/fonts/Comfortaa.ttf") format('truetype');
     font-weight: 400;
     font-style: normal;
     -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale
@@ -26,8 +29,9 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    background-color: #ffffff;
+    background-color: theme(dark);
     min-height: 100%;
+    color: theme(d-text);
 }
 
 a {
@@ -77,7 +81,7 @@ input {
     border: 0;
 }
 
-dl, ol, p, ul {
+dl, ol, p, ul, h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
 }
 
@@ -127,13 +131,13 @@ table {
 }
 
 a {
-    color: #000000;
+    color: theme(d-text);
 }
 
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
-    background: #f1f1f1;
+    background: theme(dark);
 }
 
 ::-webkit-scrollbar-button {
@@ -141,7 +145,7 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #000000;
+    background: theme(d-text);
 }
 
 @media all and (max-width: 1023px) {

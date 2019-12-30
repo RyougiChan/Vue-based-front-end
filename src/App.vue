@@ -8,6 +8,6 @@
 </script>
 
 <style lang="scss" >
-@import "./styles/reset.scss";
-@import "./styles/global.scss";
+@import "~@/styles/reset.scss";
+@import "~@/styles/global.scss";
 </style>

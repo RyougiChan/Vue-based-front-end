@@ -1,3 +1,6 @@
+@import "variables";
+@import "func";
+
 header {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -17,9 +20,9 @@ header {
                 a {
                     padding: 0 40px;
                     display: inline-block;
-                    color: #231f20;
+                    color: theme(p-text);
                     line-height: 1;
-                    border-left: 1px solid #231f20;
+                    border-left: 1px solid theme(p-text);
                     letter-spacing: .1em;
                     text-transform: uppercase;
                 }
@@ -65,7 +68,7 @@ header {
                     font-weight: 900;
                 }
                 &:last-child a {
-                    border-right: 1px solid #231f20;
+                    border-right: 1px solid theme(p-text);
                 }
             }
         }
@@ -123,102 +126,102 @@ header {
 /* Media query (max-width: 870px) */
 @media (max-width: 870px) {
     header {
-        display: none;
-    }
-
-    #mobile-header {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9999;
-        width: 100%;
-        background: rgba(255,255,255,.8);
+        // display: none;
+        padding: 0;
     
-        #top-mobile-row {
-            height: 50px;
+        .row-header {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            width: 100%;
+            background: theme(dark, 0.8);
 
-            img {
-                display: inline-block;
-                height: 30px;
-                margin-left: 20px;
-                margin-top: 10px;
-            }
-    
-            .loke-menu-icon {
-                position: absolute;
-                top: 12px;
-                right: 15px;
-                text-align: right;
-                width: 30px;
+            .header-logo {
+                height: 50px;
 
-                span {
-                    padding-top: 1px;
-                    background: #000;
-                    float: left;
-                    margin: 4px 0;
-                    width: 100%;
-                    position: relative;
-                    -webkit-transition: all .5s ease-in-out;
-                    transition: all .5s ease-in-out;
+                #desktop-logo {
+                    display: inline-block;
+                    height: 30px;
+                    margin-left: 20px;
+                    margin-top: 10px;
                 }
+        
+                .loke-menu-icon {
+                    position: absolute;
+                    top: 12px;
+                    right: 15px;
+                    text-align: right;
+                    width: 30px;
+
+                    span {
+                        padding-top: 1px;
+                        background: theme(d-text);
+                        float: left;
+                        margin: 4px 0;
+                        width: 100%;
+                        position: relative;
+                        -webkit-transition: all .5s ease-in-out;
+                        transition: all .5s ease-in-out;
+                    }
+
+                    &.open {
+                        position: absolute;
+                        top: 20px;
+
+                        span:nth-child(1) {
+                            position: relative;
+                            -webkit-transform: rotate(45deg);
+                            transform: rotate(45deg);
+                        }
+
+                        span:nth-child(2) {
+                            -webkit-transform: rotate(-45deg);
+                            transform: rotate(-45deg);
+                            top: -9px;
+                        }
+                    
+                        span:nth-child(3) {
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+
+            .header-menu {
+                height: 0;
+                padding: 0 22px!important;
+                overflow: hidden;
+                -webkit-transition: all .5s ease-in-out;
+                transition: all .5s ease-in-out;
 
                 &.open {
-                    position: absolute;
-                    top: 20px;
-
-                    span:nth-child(1) {
-                        position: relative;
-                        -webkit-transform: rotate(45deg);
-                        transform: rotate(45deg);
-                    }
-
-                    span:nth-child(2) {
-                        -webkit-transform: rotate(-45deg);
-                        transform: rotate(-45deg);
-                        top: -9px;
-                    }
-                
-                    span:nth-child(3) {
-                        opacity: 0;
-                    }
+                    height: 218px;
                 }
-            }
-
-        }
-
-        #mobile-menu-wrapper {
-            height: 0;
-            padding: 0 22px!important;
-            overflow: hidden;
-            -webkit-transition: all .5s ease-in-out;
-            transition: all .5s ease-in-out;
-
-            &.open {
-                height: 218px;
-            }
-
-            a {
-                color: #231f20;
-            }
-
-            ul li {
-                font-size: 13px;
-                text-transform: uppercase;
-                display: block;
-                padding-bottom: 10px;
-            }
-
-            .sub-menu {
-                margin-left: 1rem;
-
-                li {
-                    padding-top: 10px;
-                    padding-bottom: 0;
-                    font-weight: normal;
-
-                    &.current {
-                        font-weight: 900;
+    
+                a {
+                    color: theme(p-text);
+                }
+    
+                ul li {
+                    font-size: 13px;
+                    text-transform: uppercase;
+                    display: block;
+                    padding-bottom: 10px;
+                }
+    
+                .sub-menu {
+                    margin-left: 1rem;
+    
+                    li {
+                        padding-top: 10px;
+                        padding-bottom: 0;
+                        font-weight: normal;
+    
+                        &.current {
+                            font-weight: 900;
+                        }
                     }
                 }
             }
