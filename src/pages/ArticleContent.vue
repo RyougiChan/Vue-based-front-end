@@ -48,13 +48,16 @@
 <script>
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
+// import anime from 'animejs'
 
 export default {
-  name: 'app',
   components: {
     Header,
     Footer
-  }
+  },
+  mounted () {
+    window.scroll(0,0);
+  },
 }
 </script>
 

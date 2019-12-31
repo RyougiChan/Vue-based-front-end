@@ -1,5 +1,5 @@
 <template>
-  <div id="article">
+  <div id="y-article">
     <Header />
     <div id="main-container">
       <div class="content-section">
@@ -39,7 +39,6 @@ import Footer from '../components/Footer'
 import YCard from '../components/yuko-md-components/YCard'
 
 export default {
-  name: 'app',
   components: {
     Header,
     Footer,

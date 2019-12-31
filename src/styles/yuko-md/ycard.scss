@@ -54,22 +54,26 @@
     }
 
     .yuko-card_content {
-        min-height: 120px;
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 7;
+        -webkit-box-orient: vertical;
+        min-height: 140px;
         max-height: 160px;
-        border-bottom: 1px solid #cccccc;
-        padding: 16px;
+        margin: 16px;
         line-height: 22px;
-        overflow: hidden;
         color: #878787;
     }
 
     .yuko-card_trigger {
         height: 60px;
         line-height: 60px;
-        padding: 0 16px;
+        margin: 0 16px;
         color: #3f51b5;
         font-weight: 800;
         text-align: right;
+        border-top: 1px solid #cccccc;
         
         >div {
             display: inline-block;
@@ -82,7 +86,7 @@
                 display: block;
                 height: 36px;
                 line-height: 36px;
-                padding: 0 12px;
+                margin: 0 12px;
                 border-radius: 1px;
                 user-select: none;
 

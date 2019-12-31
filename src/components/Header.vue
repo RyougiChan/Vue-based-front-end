@@ -80,6 +80,10 @@ export default {
             {
               name: "Design",
               hasSubMenu: false
+            },
+            {
+              name: "Album",
+              hasSubMenu: false
             }
           ]
         },
@@ -97,18 +101,28 @@ export default {
       if(tar && tar.nodeName.toLowerCase() === 'a' && !(tar.parentNode.classList.contains('current'))) {
         this.activedMenuItem = tar.name.toLowerCase();
       }
+    },
+    setActiveMenuItem() {
+      let routerPath = this.$router.history.current.path;
+      let routerName;
+      if(routerPath === '/') routerName = 'home';
+      if(/(\w+)\/?(\d*)/.test(routerPath)) {
+        routerName = /(\w+)\/?(\d*)/.exec(routerPath)[1];
+      }
+      if(/(\w+)\/(\w+)/.test(routerPath)) {
+        routerName = /(\w+)\/(\w+)/.exec(routerPath)[2];
+      }
+      // window.console.log(routerPath);
+      this.activedMenuItem = routerName;
+    }
+  },
+  watch:{
+    $route(){
+      this.setActiveMenuItem()
     }
   },
   created () {
-    let routerPath = this.$router.history.current.path;
-    window.console.log('routerPath',routerPath);
-    let routerName = routerPath.substring(routerPath.lastIndexOf('/') + 1);
-    if(routerPath === '/') routerName = 'home';
-    if(/(\w+)\/(\d*)/.test(routerPath)) {
-      routerName = /(\w+)\/(\d*)/.exec(routerPath)[1];
-    }
-    window.console.log('routerName',routerName);
-    this.activedMenuItem = routerName;
+    this.setActiveMenuItem()
   },
 };
 

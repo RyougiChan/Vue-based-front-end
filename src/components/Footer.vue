@@ -1,7 +1,7 @@
 <template>
   <footer>
     <a href="https://github.com/RyougiChan" title="Website design by RyougiChan" alt="Website design by RyougiChan">
-      Website design by RyougiChan
+      Designed by RyougiChan
     </a>
   </footer>
 </template>

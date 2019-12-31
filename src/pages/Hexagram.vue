@@ -1,10 +1,17 @@
 <template>
   <div id="article">
-    Hexagram
+    
   </div>
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      
+    }
+  }
+};
 </script>
 
 <style>

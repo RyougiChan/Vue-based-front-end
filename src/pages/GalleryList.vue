@@ -9,7 +9,20 @@
             </a>
             <a href="#/gallery/design" class="floating-button">
               <h2>DEDSIGN</h2>
-              <span class="right-arrow">＞</span>
+              <span class="right-arrow">
+                <i class="material-icons">arrow_forward</i>
+              </span>
+            </a>
+          </div>
+          <div class="content-area" id="content-area-1">
+            <a href="#/gallery/album">
+              <img class="img-responsive" src="" title alt />
+            </a>
+            <a href="#/gallery/album" class="floating-button">
+              <h2>ALBUM</h2>
+              <span class="right-arrow">
+                <i class="material-icons">arrow_forward</i>
+              </span>
             </a>
           </div>
         </div>

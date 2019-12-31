@@ -1,5 +1,5 @@
 <template>
-  <div id="design">
+  <div id="album">
     <div id="main-container">
       <div class="content-section">
         <h2>Introduction </h2>

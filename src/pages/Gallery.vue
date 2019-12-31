@@ -1,8 +1,10 @@
 <template>
   <div id="gallery">
-    <Header />
-    <router-view></router-view>
-    <Footer />
+    <transition-group name="translate">
+      <Header key="header" />
+      <router-view key="content"></router-view>
+      <Footer key="footer" />
+    </transition-group>
   </div>
 </template>
 
@@ -11,10 +13,14 @@ import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
 
 export default {
-  name: 'app',
   components: {
     Header,
     Footer
+  },
+  methods: {
+    enter(el) {
+      window.console.log('trigger enter', el);
+    }
   }
 }
 </script>

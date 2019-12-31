@@ -9,6 +9,7 @@ import Hexagram from '@/pages/Hexagram'
 import Gallery from '@/pages/Gallery'
 import GalleryList from '@/pages/GalleryList'
 import Design from '@/pages/Design'
+import Album from '@/pages/Album'
 import About from '@/pages/About'
 
 Vue.use(VueRouter)
@@ -35,7 +36,8 @@ export default new VueRouter({
             component: Gallery,
             children: [
                 { path: '',name: 'Gallery',  component: GalleryList },
-                { path: 'design', name: 'Design', component: Design }
+                { path: 'design', name: 'Design', component: Design },
+                { path: 'album', name: 'Album', component: Album }
             ]
         },
         { path: '/about', name: 'About', component: About }
