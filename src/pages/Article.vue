@@ -5,7 +5,7 @@
       <div class="content-section">
         <YCard 
           title="Google" 
-          content="On August 10, 2015, Google announced plans to reorganize its various interests as a conglomerate called Alphabet. Google
+          abstract="On August 10, 2015, Google announced plans to reorganize its various interests as a conglomerate called Alphabet. Google
                     became Alphabet's leading subsidiary, and will continue to be the umbrella company for Alphabet's Internet
                     interests. Upon completion of the restructure, Sundar Pichai became CEO of Google, replacing Larry Page,
                     who became CEO of Alphabet."
@@ -13,7 +13,7 @@
         />
         <YCard 
           title="Google" 
-          content="On August 10, 2015, Google announced plans to reorganize its various interests as a conglomerate called Alphabet. Google
+          abstract="On August 10, 2015, Google announced plans to reorganize its various interests as a conglomerate called Alphabet. Google
                     became Alphabet's leading subsidiary, and will continue to be the umbrella company for Alphabet's Internet
                     interests. Upon completion of the restructure, Sundar Pichai became CEO of Google, replacing Larry Page,
                     who became CEO of Alphabet."
@@ -21,7 +21,7 @@
         />
         <YCard 
           title="Google" 
-          content="On August 10, 2015, Google announced plans to reorganize its various interests as a conglomerate called Alphabet. Google
+          abstract="On August 10, 2015, Google announced plans to reorganize its various interests as a conglomerate called Alphabet. Google
                     became Alphabet's leading subsidiary, and will continue to be the umbrella company for Alphabet's Internet
                     interests. Upon completion of the restructure, Sundar Pichai became CEO of Google, replacing Larry Page,
                     who became CEO of Alphabet."

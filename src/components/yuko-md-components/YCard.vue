@@ -1,6 +1,6 @@
 <template>
-  <div id="card">
-    <div class="yuko-card_container">
+  <div class="y-card">
+    <div class="yuko-card">
       <div class="yuko-card_avatar">
         <div class="yuko-card_avatar-icon">
           <i class="material-icons"></i>
@@ -8,7 +8,7 @@
         <div class="yuko-card_avatar-title">{{ title }}</div>
       </div>
       <div class="yuko-card_content">
-        {{ content }}
+        {{ abstract }}
       </div>
       <div class="yuko-card_trigger">
         <div>
@@ -24,7 +24,7 @@ export default {
   name: 'YCard',
   props: {
     title: String,
-    content: String,
+    abstract: String,
     link: String
   }
 }

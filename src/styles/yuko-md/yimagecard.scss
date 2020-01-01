@@ -1,0 +1,70 @@
+@import "../variables";
+@import "../func";
+
+.yuko-imgcard {
+    padding: 20px;
+    background: none;
+    box-shadow: theme(d-text, 0.1) 0 0 16px 5px;
+
+    .yuko-imgcard_title {
+        text-align: center;
+    }
+
+    .yuko-imgcard_info {
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    .yuko-imgcard_content {
+        position: relative;
+        margin-top: 12px;
+        overflow: hidden;
+
+        &:hover {
+            box-shadow: theme(d-text, 0.5) 0px 0px 20px 2px;
+            cursor: pointer;
+
+            .yuko-imgcard_content-text {
+                transform: scale(1);
+                opacity: 1;
+            }
+            
+            .yuko-imgcard_content-img {
+                transform: scale(1.2)
+            }
+        }
+
+        .yuko-imgcard_content-img {
+            transition: all .4s ease-in;
+            
+
+            > img {
+                width: 100%;
+            }
+        }
+
+        .yuko-imgcard_content-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            background: theme(d-text, 0.5);
+            opacity: 0;
+            transition: all .4s ease-in;
+            transform: scale(2);
+            font-size: 18px;
+
+            >p {
+                color: theme(dark);
+                padding: 10px;
+                margin-bottom: 10px;
+                line-height: 1.5em;
+                max-height: calc(100% - 30px);
+                width: calc(100% - 30px);
+                overflow: hidden;
+            }
+        }
+    }
+}

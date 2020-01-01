@@ -17,7 +17,7 @@
             HOBBY
           </h5>
           <p>
-            In my free time, I like listening to <strong>music</strong>, <strong>reading</strong>, <strong>painting</strong> and <strong>hiking</strong>. 
+            I like listening to <strong>music</strong>, <strong>reading</strong>, <strong>painting</strong> and <strong>hiking</strong>. 
             <br>
             Sometimes, I also <strong>play games</strong> with friends on the Steam platform.
             <br>

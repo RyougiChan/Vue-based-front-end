@@ -12,8 +12,7 @@ export default {
   watch:{
     $route(to, from){
       window.previousRoute = from;
-      window.console.log(window.previousRoute)
-}
+    }
   },
 }
 </script>

@@ -70,7 +70,19 @@ export default {
             {
               name: "Hexagram",
               hasSubMenu: false
-            }
+            },
+            {
+              name: "Md-Components",
+              hasSubMenu: false
+            },
+            {
+              name: "Snow-Effect",
+              hasSubMenu: false
+            },
+            {
+              name: "Nav-Drawer",
+              hasSubMenu: false
+            },
           ]
         },
         {

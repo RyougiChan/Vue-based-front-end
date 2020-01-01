@@ -1,11 +1,11 @@
 @import "../variables";
 @import "../func";
 
-.yuko-card_container {
+.yuko-card {
     max-width: 520px;
     overflow: hidden;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-    background: #ffffff;
+    box-shadow: 0 2px 2px 0 theme(d-text, 0.14), 0 3px 1px -2px theme(d-text, 0.2), 0 1px 5px 0 theme(d-text, 0.12);
+    background: theme(dark);
     margin: 30px auto;
 
     h3 {
@@ -63,17 +63,17 @@
         max-height: 160px;
         margin: 16px;
         line-height: 22px;
-        color: #878787;
+        color: theme(d-text, 0.5);
     }
 
     .yuko-card_trigger {
         height: 60px;
         line-height: 60px;
         margin: 0 16px;
-        color: #3f51b5;
+        color: theme(d-text);
         font-weight: 800;
         text-align: right;
-        border-top: 1px solid #cccccc;
+        border-top: 1px solid theme(dark, 0.2);
         
         >div {
             display: inline-block;
@@ -91,7 +91,7 @@
                 user-select: none;
 
                 &:hover {
-                    background: rgba(158, 158, 158, 0.2);
+                    background: theme(d-text, 0.1);
                 }
             }
         }
