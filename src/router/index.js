@@ -7,7 +7,7 @@ import Project from '@/pages/Project'
 import ProjectList from '@/pages/Project-List'
 import Hexagram from '@/pages/Project-Hexagram'
 import MdComponents from '@/pages/Project-Md-Components'
-import SnowEffect from '@/pages/Project-Snow-Effect'
+import ProjectContent from '@/pages/ProjectContent'
 import NavigationDrawer from '@/pages/Project-Navigation-Drawer'
 import Gallery from '@/pages/Gallery'
 import GalleryList from '@/pages/Gallery-List'
@@ -33,7 +33,7 @@ export default new VueRouter({
                 { path: '',name: 'Project',  component: ProjectList },
                 { path: 'hexagram', name: 'Hexagram', component: Hexagram },
                 { path: 'md-components', name: 'Md-Components', component: MdComponents },
-                { path: 'snow-effect', name: 'Snow-Effect', component: SnowEffect },
+                { path: ':id', name: 'ProjectContent', component: ProjectContent },
                 { path: 'navigation-drawer', name: 'Nav-Drawer', component: NavigationDrawer },
             ]
         },
