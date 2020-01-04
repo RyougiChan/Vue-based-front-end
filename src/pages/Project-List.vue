@@ -38,7 +38,8 @@ export default {
       limit: 8,
       orderBy: {
         property: 'modifiedTime'
-      }
+      },
+      status: 1
     })
     .then((response) => {
       window.console.log(response);

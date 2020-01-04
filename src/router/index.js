@@ -5,10 +5,7 @@ import Article from '@/pages/Article'
 import ArticleContent from '@/pages/Article-Content'
 import Project from '@/pages/Project'
 import ProjectList from '@/pages/Project-List'
-import Hexagram from '@/pages/Project-Hexagram'
-import MdComponents from '@/pages/Project-Md-Components'
 import ProjectContent from '@/pages/ProjectContent'
-import NavigationDrawer from '@/pages/Project-Navigation-Drawer'
 import Gallery from '@/pages/Gallery'
 import GalleryList from '@/pages/Gallery-List'
 import Design from '@/pages/Design'
@@ -31,10 +28,7 @@ export default new VueRouter({
             component: Project,
             children: [
                 { path: '',name: 'Project',  component: ProjectList },
-                { path: 'hexagram', name: 'Hexagram', component: Hexagram },
-                { path: 'md-components', name: 'Md-Components', component: MdComponents },
-                { path: ':id', name: 'ProjectContent', component: ProjectContent },
-                { path: 'navigation-drawer', name: 'Nav-Drawer', component: NavigationDrawer },
+                { path: ':id', name: 'ProjectContent', component: ProjectContent, props: true }
             ]
         },
         { 

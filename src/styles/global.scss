@@ -53,6 +53,7 @@ body {
     right: 0;
     width: 100%;
     height: 100%;
+    transition: all .5s ease-in-out;
 }
 
 .return-button {
@@ -192,9 +193,18 @@ body {
             }
 
             .img-responsive {
-                max-width: 440px;
+                max-width: 722px;
                 width: 100%;
                 height: auto;
+                box-shadow: 0 0 101px rgba(0, 0, 0, 0.14);
+
+                &.wide {
+                    max-width: 722px;
+                }
+
+                &.narrow {
+                    max-width: 399px;
+                }
             }
         }
     }
@@ -355,14 +365,6 @@ body {
                         font-size: 32px;
                         font-weight: 100;
                     }
-                }
-
-                #content-area-1 {
-                    padding-top: 120px;
-                }
-
-                #content-area-2 {
-                    margin-left: 120px;
                 }
             }
         }
