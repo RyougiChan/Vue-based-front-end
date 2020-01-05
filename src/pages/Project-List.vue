@@ -30,9 +30,6 @@ export default {
     YImageCard
   },
   mounted () {
-      window.console.log(this);
-      window.console.log(this.projectList);
-
     axios.post(process.env.VUE_APP_APIURL + '/project/list', {
       page: 1,
       limit: 8,

@@ -3,6 +3,9 @@
     <transition name="translate">
       <router-view></router-view>
     </transition>
+    <div class="return-button" @click="historyBack" v-show="showBackButtonElement">
+      <i class="material-icons">arrow_back</i>
+    </div>
   </div>
 </template>
 
@@ -12,8 +15,26 @@ export default {
   watch:{
     $route(to, from){
       window.previousRoute = from;
+      this.showBackButtonElement = (this.$router.history.current.path != '/');
     }
   },
+  data() {
+    return {
+      showBackButtonElement: false
+    }
+  },
+  methods: {
+    historyBack() {
+      if(!window.previousRoute) {
+        window.previousRoute = /(\/\w+).*/.exec(this.$router.history.current.path)[1];
+        window.console.log(window.previousRoute);
+      }
+      this.$router.replace(window.previousRoute)
+    }
+  },
+  created() {
+    this.showBackButtonElement = (this.$router.history.current.path != '/');
+  }
 }
 </script>
 

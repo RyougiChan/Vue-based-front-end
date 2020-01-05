@@ -7,8 +7,7 @@
         </div>
         <div class="yuko-card_avatar-title">{{ title }}</div>
       </div>
-      <div class="yuko-card_content">
-        {{ abstract }}
+      <div class="yuko-card_content" v-html="abstract">
       </div>
       <div class="yuko-card_trigger">
         <div>
@@ -21,6 +20,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      
+    }
+  },
   name: 'YCard',
   props: {
     title: String,

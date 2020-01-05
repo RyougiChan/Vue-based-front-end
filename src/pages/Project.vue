@@ -5,9 +5,6 @@
       <router-view key="content"></router-view>
       <Footer key="footer" />
     </transition-group>
-    <div class="return-button" @click="historyBack" v-show="showBackButtonElement">
-      <i class="material-icons">arrow_back</i>
-    </div>
   </div>
 </template>
 
@@ -20,24 +17,6 @@ export default {
   components: {
     Header,
     Footer
-  },
-  data() {
-    return {
-      showBackButtonElement: true
-    }
-  },
-  methods: {
-    historyBack() {
-      if(!window.previousRoute) {
-        window.previousRoute = /(\/\w+).*/.exec(this.$router.history.current.path)[1];
-        window.console.log(window.previousRoute);
-      }
-      this.$router.replace(window.previousRoute)
-    },
-    appendBackButton(isAppend) {
-      window.console.log(isAppend, this.backButtonElement);
-      this.backButtonElement.style.display = isAppend ? 'block' : 'none'
-    }
   },
   mounted () {
     let projectElement = document.getElementsByClassName('y-project')[0];

@@ -387,3 +387,46 @@ body {
     transform: translateY(-200px);
     transition: all 1s cubic-bezier(0.68, 0.66, 0.41, 0.99);
 }
+
+.hide-scrollbar {
+    &::-webkit-scrollbar {
+        display: none!important;
+        width: 0!important;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: transparent!important;
+    }
+
+    ::-webkit-scrollbar {
+        display: none!important;
+        width: 0!important;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: transparent!important;
+    }
+
+    overflow:-moz-scrollbars-none;
+    scrollbar-width: none;
+    -ms-overflow-style:none;
+    overflow-y: scroll;
+    scrollbar-color: transparent transparent;
+    scrollbar-track-color: transparent;
+    -ms-scrollbar-track-color: transparent;
+}
+
+.vue-waterfall-easy-container {
+    .vue-waterfall-easy {
+        .img-box {
+            cursor: pointer;
+
+            a.img-inner-box {
+                transition: all .3s ease-in-out;
+                &:hover {
+                    box-shadow: theme(d-text, 0.3) 0 0 16px 5px;
+                }
+            }
+        }
+    }
+}

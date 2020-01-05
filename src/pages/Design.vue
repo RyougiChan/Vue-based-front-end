@@ -1,52 +1,143 @@
 <template>
   <div id="design">
     <div id="main-container">
-      <div class="content-section">
-        <h2>Introduction </h2>
-        <p>Material Design is a visual language that synthesizes the classic principles of good design with the innovation of technology and science.</p>
-        <h3>Goals</h3>
-        <p>Create a visual language that synthesizes the classic principles of good design with the innovation and possibility of technology and science. Develop a single underlying...</p>
-        <h4>Create</h4>
-        <p>Create a visual language that synthesizes the classic principles of good design with the innovation and possibility of technology and science.</p>
-        <h4>Unify</h4>
-        <p>Develop a single underlying system that unifies the user experience across platforms, devices, and input methods.</p>
-        <h4>Customize</h4>
-        <p>Expand Material’s visual language and provide a flexible foundation for innovation and brand expression.</p>
-        <h3>Principles</h3>
-        <p>Material Design is inspired by the physical world and its textures, including how they reflect light and cast shadows. Material surfaces reimagine the mediums of...</p>
-        <h4>Material is the metaphor</h4>
-        <p>Material Design is inspired by the physical world and its textures, including how they reflect light and cast shadows. Material surfaces reimagine the mediums of paper and ink.</p>
-        <h4>Bold, graphic, intentional</h4>
-        <p>Material Design is guided by print design methods — typography, grids, space, scale, color, and imagery — to create hierarchy, meaning, and focus that immerse viewers in the experience.</p>
-        <h4>Motion provides meaning</h4>
-        <p>Motion focuses attention and maintains continuity, through subtle feedback and coherent transitions. As elements appear on screen, they transform and reorganize the environment, with interactions generating new transformations.</p>
-        <h4>Flexible foundation</h4>
-        <p>The Material Design system is designed to enable brand expression. It’s integrated with a custom code base that allows the seamless implementation of components, plug-ins, and design elements.</p>
-        <h4>Cross-platform</h4>
-        <p>Material Design maintains the same UI across platforms, using shared components across Android, iOS, Flutter, and the web.</p>
-        <h4>Getting around</h4>
-        <p>Our comprehensive guidance helps you make beautiful products, faster. Design and build with new tools for customizing Material and sharing work, find inspiration in the...</p>
-        <p>Our comprehensive guidance helps you make beautiful products, faster. Design and build with new tools for customizing Material and sharing work, find inspiration in the Material studies, and express your product’s unique identity with Material Theming.</p>
-        <p>Find what you need by navigating across these three sections:</p>
-        <h4>Material System</h4>
-        <p>Our expanded and enhanced design system is unified with Material tools and components to improve workflow between design and development.</p>
-        <h4>Material Foundation</h4>
-        <p>Design and strategize how to build your app using Material Design architecture, while learning the principles and theory that underpin Material Design.</p>
-        <h4>Material Guidelines</h4>
-        <p>Customize and deploy a unique Material theme systematically across your product – from design to code.</p>
-        <p>You can still view the previous set of Material Guidelines.</p>
-        <h3>Updates</h3>
-        <p>See the latest Material updates on our what’s new page, and sign up for the Material newsletter to get releases, announcements, and tips delivered directly...</p>
-        <p>See the latest Material updates on our what’s new page, and sign up for the Material newsletter to get releases, announcements, and tips delivered directly to your inbox.</p>
+      <div class="content-section hide-scrollbar" id="waterflow">
+        <vue-waterfall-easy ref="waterfall" :imgsArr="pics" :reachBottomDistance=10 :maxCols=4 @scrollReachBottom="loadImages" @click="handleImgClick">
+          <div slot="waterfall-over">NO MORE DESIGN</div>
+        </vue-waterfall-easy>
+      </div>
+      <div id="display-drawer" @click="handleDrawerClick">
+        <div id="display-container" class="hide-scrollbar">
+          <img class="display-img" :src="designInfo.primarySrc" alt="">
+          <p class="display-desc">
+            {{designInfo.description}}
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+import vueWaterfallEasy from 'vue-waterfall-easy'
 
+export default {
+  data() {
+    return {
+      pics: [],
+      pager: {
+        total: 0,
+        pageSize: 20,
+        pageCount: 0,
+        currentPage: 1,
+      },
+      designInfo: {}
+    }
+  },
+  components: {
+    vueWaterfallEasy
+  },
+  methods: {
+    loadImages() {
+      window.console.log('request', process.env.VUE_APP_APIURL + '/design/list');
+      axios.post(process.env.VUE_APP_APIURL + '/design/list', {
+        page: this.pager.currentPage,
+        limit: this.pager.pageSize
+      })
+      .then((response) => {
+        window.console.log(response);
+        let resData = response.data;
+        this.pager.total = resData.result.totalElements;
+        this.pager.pageCount = resData.result.totalPage;
+        window.console.log(this.pager.currentPage, this.pager.pageCount);
+        if((this.pager.currentPage++) > this.pager.pageCount) {
+          this.$refs.waterfall.waterfallOver();
+          return;
+        }
+        Array.from(resData.result.content).forEach(d => {
+          this.pics.push({
+            id: d.id,
+            name: d.name,
+            description: d.description,
+            imageHeight: d.imageHeight,
+            imageWidth: d.imageWidth,
+            addedTime: d.added_time,
+            src: process.env.VUE_APP_IMGURL + '/images/design/cover/' + d.fileName,
+            primarySrc: process.env.VUE_APP_IMGURL + '/images/design/primary/' + d.fileName,
+          });
+        });
+      })
+      .catch((error) => {
+        window.console.log(error);
+        this.$refs.waterfall.waterfallOver();
+      });
+    },
+    handleImgClick(event, { index, value }) {
+      window.console.log(index, value);
+      document.getElementById('display-container').style.marginLeft = (event.x > window.document.documentElement.clientWidth * 0.4) ? 0 : '40%';
+      document.getElementById('display-drawer').style.left = 0;
+      this.designInfo = value;
+    },
+    handleDrawerClick(event) {
+      if(event.target === document.getElementById('display-drawer')) {
+        document.getElementById('display-drawer').style.left = '-100%';
+      }
+    }
+  },
+  created () {
+    this.loadImages();
+  },
+  mounted () {
+    document.getElementById('waterflow').style.height = (document.documentElement.clientHeight - document.getElementById('r-header').offsetHeight - document.querySelector('footer').offsetHeight - 65*2) + 'px';
+  },
+}
 </script>
 
-<style>
+<style lang="scss" scope>
+@import '../styles/_variables';
+@import '../styles/_func';
 
+#display-drawer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: -100%;
+  top: 0;
+  background: theme(d-text, 0.8);
+  transition: all .3s ease-in-out;
+
+  #display-container {
+    width: 60%;
+    height: 100%;
+    background: theme(dark);
+    margin-left: 40%;
+    overflow-y: scroll;
+
+    .display-img {
+      max-width: 100%;
+    }
+    .display-desc {
+      max-width: 100%;
+      word-break: break-word;
+      text-align: center;
+    }
+    .display-spec {
+      padding: 1.5rem;
+      display: flex;
+
+      .display-spec-list {
+        margin-left: 2rem;
+        
+        li {
+          line-height: 2rem;
+        }
+
+        &.display-spec-list-tag {
+          text-align: right
+        }
+      }
+    }
+  }
+}
 </style>
