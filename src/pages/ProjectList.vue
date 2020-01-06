@@ -11,6 +11,7 @@
           :imgLink="project.imgLink"
         />
         </p>
+        <YPagination />
       </div>
     </div>
   </div>
@@ -27,7 +28,7 @@ export default {
     }
   },
   components: {
-    YImageCard
+    YImageCard,
   },
   mounted () {
     axios.post(process.env.VUE_APP_APIURL + '/project/list', {

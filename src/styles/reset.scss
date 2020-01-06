@@ -85,6 +85,10 @@ dl, ol, p, ul, h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
 }
 
+pre, code {
+    overflow: scroll hidden;
+}
+
 table {
     border-spacing: 0;
     border-collapse: collapse;

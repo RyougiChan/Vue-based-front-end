@@ -2,8 +2,9 @@
   <div id="article-content">
     <Header />
     <div id="main-container">
-      <div class="content-section" v-html="article.content">
+      <div class="content-section">
         <h3>{{ article.title }}</h3>
+        <div v-html="article.content"></div>
       </div>
     </div>
     <Footer />
@@ -43,11 +44,10 @@ export default {
           this.article.authorName = article.authorName;
           this.article.coverUrl = process.env.VUE_APP_IMGURL + article.coverUrl;
           this.$nextTick(function() {
-            window.scroll(0, 0);
             let codes = document.getElementsByTagName("code");
             for (let i = 0; i < codes.length; i++) {
               let ce = codes[i];
-              ce.innerHTML = hljs.highlightAuto(ce.textContent).value;
+              ce.innerHTML = hljs.highlightAuto(ce.textContent.replace(/\n\s{1,8}/gm, '\n')).value;
             }
           });
         }
