@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import eventBus from './scripts/eventbus.js';
+
 export default {
   name: 'app',
   watch:{
@@ -29,6 +31,8 @@ export default {
         window.previousRoute = /(\/\w+).*/.exec(this.$router.history.current.path)[1];
         window.console.log(window.previousRoute);
       }
+      window.console.log('App',this.$router.history.current.query);
+      eventBus.$emit('query',this.$router.history.current.query);
       this.$router.replace(window.previousRoute)
     }
   },

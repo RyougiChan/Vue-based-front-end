@@ -11,7 +11,6 @@
           :imgLink="project.imgLink"
         />
         </p>
-        <YPagination />
       </div>
     </div>
   </div>

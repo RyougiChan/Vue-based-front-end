@@ -1,5 +1,10 @@
 @import "variables";
 
-@function theme($key-name, $alpha:1.0) {
-    @return rgba(map-get($map: $theme, $key: $key-name),$alpha);
+@function theme($key-name, $alpha:1.0, $mixColor:null) {
+    @if null==$mixColor {
+        @return rgba(map-get($map: $theme, $key: $key-name),$alpha);
+    }
+    @else {
+        @return mix(rgba(map-get($map: $theme, $key: $key-name),$alpha), $mixColor);
+    }
 }

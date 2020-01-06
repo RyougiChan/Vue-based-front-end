@@ -5,7 +5,6 @@ body {
     background: theme(dark) url("~@/images/nakai.jpg") no-repeat 88% 50%;
 }
 
-
 .clearfix {
     *zoom: 1;
 
@@ -108,6 +107,10 @@ body {
 
     // Content section
     .content-section {
+
+        a {
+            color: theme(d-text, 0.66, rgb(0, 142, 255));
+        }
 
         h1,
         h2,
@@ -436,4 +439,10 @@ body {
             }
         }
     }
+}
+
+// element ui reset
+.el-pagination {
+    margin: 1.5rem auto;
+    width: fit-content;
 }
