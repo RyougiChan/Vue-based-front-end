@@ -11,10 +11,11 @@ import GalleryList from '@/pages/GalleryList'
 import Design from '@/pages/Design'
 import Album from '@/pages/Album'
 import About from '@/pages/About'
+import store from '../store'
 
 Vue.use(VueRouter)
 
-export default new VueRouter({
+const router = new VueRouter({
     routes: [
         { path: '/', name: 'Home', component: Home },
         { path: '/article', name: 'Article', component: Article },
@@ -43,3 +44,16 @@ export default new VueRouter({
         { path: '/about', name: 'About', component: About }
     ]
 })
+
+router.beforeEach((to, from, next) => {
+    if (Object.keys(to.params).length === 0) {
+        window.console.log({key: to.params, value: store.state.query[to.name]})
+        Object.assign(to.params, store.state.query[to.name] || {})
+    }
+    Object.assign(to.params, {scroll: {x: window.scrollX, y: window.scrollY}})
+    window.console.log({key: to.name, value: from.params})
+    store.commit('saveQuery', {key: from.name, value: from.params})
+    next()
+  })
+
+export default router

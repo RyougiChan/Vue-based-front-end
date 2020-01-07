@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import eventBus from './scripts/eventbus.js';
 
 export default {
   name: 'app',
@@ -27,13 +26,7 @@ export default {
   },
   methods: {
     historyBack() {
-      if(!window.previousRoute) {
-        window.previousRoute = /(\/\w+).*/.exec(this.$router.history.current.path)[1];
-        window.console.log(window.previousRoute);
-      }
-      window.console.log('App',this.$router.history.current.query);
-      eventBus.$emit('query',this.$router.history.current.query);
-      this.$router.replace(window.previousRoute)
+      this.$router.history.go(-1)
     }
   },
   created() {

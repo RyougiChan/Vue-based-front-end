@@ -16,6 +16,7 @@
           :page-size="pager.pageSize"
           layout="prev, pager, next"
           :total="pager.total"
+          :current-page="pager.currentPage"
           @prev-click="handlePagerClick(pager.currentPage - 1)"
           @next-click="handlePagerClick(pager.currentPage + 1)"
           @current-change="handlePagerClick"
@@ -30,7 +31,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import YCard from "../components/yuko-md-components/YCard";
-import eventBus from '../scripts/eventbus.js';
 import axios from "axios";
 
 export default {
@@ -43,7 +43,6 @@ export default {
         currentPage: 1,
       },
       articleList: [],
-      isDataLoaded: false
     };
   },
   components: {
@@ -55,9 +54,11 @@ export default {
     handlePagerClick(current) {
       if(current < 1 || current > this.pager.pageCount) return;
       this.pager.currentPage = current;
-      this.loadData();
+      Object.assign(this.$router.history.current.params, { currentPage: this.pager.currentPage })
+      window.console.log('this.$router.history.current:', this.$router.history.current)
+      this.loadData(true);
     },
-    loadData() {
+    loadData(resetScroll) {
       axios
       .post(process.env.VUE_APP_APIURL + "/article/list", {
         page: this.pager.currentPage,
@@ -78,11 +79,11 @@ export default {
             title: d.title,
             abstract: d.abs,
             description: d.content,
-            link: "#/article/" + d.id +'?currentpage='+this.pager.currentPage,
+            link: "#/article/" + d.id,
             imgLink: process.env.VUE_APP_IMGURL + d.coverUrl
           });
         });
-        window.scroll(0,0)
+        if(resetScroll)window.scroll(0,0)
       })
       .catch(error => {
         window.console.log(error);
@@ -90,25 +91,11 @@ export default {
     }
   },
   created(){
-    window.console.log('1',this.isDataLoaded,this.pager.currentPage)
-    if(!this.isDataLoaded) {
-      this.isDataLoaded = true;
-      this.loadData()
-    }
-    window.console.log('1',this.isDataLoaded,this.pager.currentPage)
-  },
-  mounted() {
-    eventBus.$on('query', function(query){
-        window.console.log('article mounted query',query);
-        window.console.log('article mounted query',this.isDataLoaded,this.pager.currentPage);
-        if(query.currentpage !== undefined) {
-          this.pager.currentPage = window.parseInt(query.currentpage);
-          this.isDataLoaded = true;
-        window.console.log('article mounted reload');
-          this.loadData()
-        window.console.log('article mounted query',this.isDataLoaded,this.pager.currentPage);
-        }
-    }.bind(this));
+    window.console.log('this.$router.history.current:', this.$router.history.current)
+    let qp = this.$router.history.current.params;
+    if(qp.currentPage) this.pager.currentPage = qp.currentPage;
+    this.loadData();
+    if(qp.scroll) window.scroll(qp.scroll.x, qp.scroll.y);
   }
 };
 </script>

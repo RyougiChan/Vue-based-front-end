@@ -51,6 +51,7 @@ export default {
             }
           });
         }
+        window.scroll(0,0)
       })
       .catch(message => {
         window.console.log(message);
