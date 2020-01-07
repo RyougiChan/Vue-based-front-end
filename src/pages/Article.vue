@@ -3,6 +3,17 @@
     <Header />
     <div id="main-container">
       <div class="content-section">
+        <el-pagination
+          :hide-on-single-page="pager.pageCount <= 1"
+          :page-size="pager.pageSize"
+          layout="prev, pager, next"
+          :total="pager.total"
+          :current-page="pager.currentPage"
+          @prev-click="handlePagerClick(pager.currentPage - 1)"
+          @next-click="handlePagerClick(pager.currentPage + 1)"
+          @current-change="handlePagerClick"
+        ></el-pagination>
+
         <YCard
           v-for="(article, index) in articleList"
           :key="index"
@@ -43,6 +54,7 @@ export default {
         currentPage: 1,
       },
       articleList: [],
+      loadingInstance: undefined
     };
   },
   components: {
@@ -83,14 +95,22 @@ export default {
             imgLink: process.env.VUE_APP_IMGURL + d.coverUrl
           });
         });
+        this.loadingInstance.close();
         if(resetScroll)window.scroll(0,0)
       })
       .catch(error => {
+        this.loadingInstance.close();
         window.console.log(error);
       });
     }
   },
   created(){
+    this.loadingInstance = this.$loading({
+      lock: true,
+      text: "Loading",
+      spinner: "el-icon-loading",
+      background: "rgba(255, 255, 255, 0.7)"
+    });
     window.console.log('this.$router.history.current:', this.$router.history.current)
     let qp = this.$router.history.current.params;
     if(qp.currentPage) this.pager.currentPage = qp.currentPage;

@@ -47,7 +47,7 @@ body {
 
 .fullscreen {
     position: fixed;
-    z-index: 9999;
+    z-index: 999;
     top: 0;
     right: 0;
     width: 100%;
@@ -65,7 +65,7 @@ body {
     bottom: 0;
     left: 36px;
     margin: auto;
-    z-index: 10000;
+    z-index: 2002;
     cursor: pointer;
     border: solid 1.5px theme(d-text);
     color: theme(d-text);
@@ -322,7 +322,7 @@ body {
         top: 10px;
         left: 50%;
         margin-left: -14px;
-        z-index: 10000;
+        z-index: 1000;
 
         &.playing {
             span {

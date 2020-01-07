@@ -24,7 +24,8 @@ export default {
       article: {
         title: "",
         content: ""
-      }
+      },
+      loadingInstance: undefined
     };
   },
   components: {
@@ -32,6 +33,14 @@ export default {
     Footer
   },
   props: ["id"],
+  created () {
+    this.loadingInstance = this.$loading({
+      lock: true,
+      text: "Loading",
+      spinner: "el-icon-loading",
+      background: "rgba(255, 255, 255, 0.7)"
+    });
+  },
   mounted() {
     axios
       .get(process.env.VUE_APP_APIURL + "/article/?id=" + this.id)
@@ -51,10 +60,17 @@ export default {
             }
           });
         }
+        this.loadingInstance.close();
         window.scroll(0,0)
       })
       .catch(message => {
+        this.loadingInstance.close();
         window.console.log(message);
+        const h = this.$createElement;
+        this.$notify({
+          title: 'ERROR',
+          message: h('i', { style: 'color: red'}, 'Obtain article content error.')
+        });
       });
   }
 };

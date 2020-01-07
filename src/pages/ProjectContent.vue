@@ -1,15 +1,13 @@
 <template>
   <div id="md-component" class="y-project">
-    <FullScreenFrame v-if="src !== ''" :src="src" />
+    <FullScreenFrame v-if="project.src !== ''" :src="project.src" />
     <div id="main-container">
       <div class="content-section">
         <h4>{{ title }}</h4>
         <p>
-          <img :src="coverUrl" :alt="name">
+          <img :src="project.coverUrl" :alt="project.name" />
         </p>
-        <p>
-          {{ content }}
-        </p>
+        <p>{{ project.content }}</p>
       </div>
     </div>
   </div>
@@ -19,38 +17,76 @@
 <script>
 import FullScreenFrame from "../components/FullScreenFrame";
 import axios from "axios";
+// import { Loading } from 'element-ui';
 
 export default {
   data() {
     return {
-      src: '',
-      name: '',
-      title: '',
-      content: '',
-      coverUrl: ''
+      project: {
+        src: "",
+        name: "",
+        title: "",
+        content: "",
+        coverUrl: ""
+      },
+      loadingInstance: undefined
     };
   },
-  props: ['id'],
+  props: ["id"],
   components: {
     FullScreenFrame
+  },
+  created() {
+    this.loadingInstance = this.$loading({
+      lock: true,
+      text: "Loading",
+      spinner: "el-icon-loading",
+      background: "rgba(255, 255, 255, 0.7)"
+    });
   },
   mounted() {
     window.console.log(this.id);
     axios
       .get(process.env.VUE_APP_APIURL + "/project/?id=" + this.id)
-      .then((response) => {
+      .then(response => {
         window.console.log(response);
-        if(response.data.errorCode === 0) {
+        if (response.data.errorCode === 0) {
           let project = response.data.result;
-          this.src = project.externalUrl;
-          this.name = project.name;
-          this.title = project.title;
-          this.content = project.content;
-          this.coverUrl = process.env.VUE_APP_IMGURL + project.coverUrl;
+          this.project.src = project.externalUrl;
+          this.project.name = project.name;
+          this.project.title = project.title;
+          this.project.content = project.content;
+          this.project.coverUrl = process.env.VUE_APP_IMGURL + project.coverUrl;
+          axios
+            .get(project.externalUrl)
+            .then(() => {
+              this.loadingInstance.close();
+            })
+            .catch(() => {
+              this.loadingInstance.close();
+              const h = this.$createElement;
+              this.$notify({
+                title: "ERROR",
+                message: h(
+                  "i",
+                  { style: "color: red" },
+                  "Initial frame content error."
+                )
+              });
+            });
         }
       })
-      .catch((message) => {
+      .catch(message => {
         window.console.log(message);
+        const h = this.$createElement;
+        this.$notify({
+          title: "ERROR",
+          message: h(
+            "i",
+            { style: "color: red" },
+            "Obtain project content error."
+          )
+        });
       });
   }
 };
