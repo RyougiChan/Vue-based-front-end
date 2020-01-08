@@ -67,6 +67,13 @@ export default {
       this.loadData(true);
     },
     loadData(resetScroll) {
+      this.loadingInstance = this.$loading({
+        lock: true,
+        text: "Loading",
+        spinner: "el-icon-loading",
+        background: "rgba(255, 255, 255, 0.7)"
+      });
+
       axios.post(process.env.VUE_APP_APIURL + '/project/list', {
         page: this.pager.currentPage,
         limit: this.pager.pageSize,
@@ -98,20 +105,16 @@ export default {
         const h = this.$createElement;
         this.$notify({
           title: 'ERROR',
-          message: h('i', { style: 'color: red'}, 'Obtain article list error.')
+          message: h('i', { style: 'color: #009688'}, 'We are sorry but data missing due to unknown factors ",,ԾㅂԾ,,"'),
+          position: 'bottom-right',
+          duration: 5000
         });
+        this.catchError = true;
         this.loadingInstance.close();
       });
     }
   },
   created(){
-    this.loadingInstance = this.$loading({
-      lock: true,
-      text: "Loading",
-      spinner: "el-icon-loading",
-      background: "rgba(255, 255, 255, 0.7)"
-    });
-
     window.console.log('this.$router.history.current:', this.$router.history.current)
     let qp = this.$router.history.current.params;
     if(qp.currentPage) this.pager.currentPage = qp.currentPage;

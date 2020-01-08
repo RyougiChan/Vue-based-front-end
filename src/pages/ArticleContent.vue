@@ -69,7 +69,9 @@ export default {
         const h = this.$createElement;
         this.$notify({
           title: 'ERROR',
-          message: h('i', { style: 'color: red'}, 'Obtain article content error.')
+          message: h('i', { style: 'color: #009688'}, 'We are sorry but data missing due to unknown factors ",,ԾㅂԾ,,"'),
+          position: 'bottom-right',
+          duration: 5000
         });
       });
   }

@@ -69,9 +69,11 @@ export default {
                 title: "ERROR",
                 message: h(
                   "i",
-                  { style: "color: red" },
-                  "Initial frame content error."
-                )
+                  { style: "color: #009688" },
+                  "We are sorry but we cannot initialize frame content"
+                ),
+                position: 'bottom-right',
+                duration: 5000
               });
             });
         }
@@ -81,11 +83,9 @@ export default {
         const h = this.$createElement;
         this.$notify({
           title: "ERROR",
-          message: h(
-            "i",
-            { style: "color: red" },
-            "Obtain project content error."
-          )
+          message: h('i', { style: 'color: #009688'}, 'We are sorry but data missing due to unknown factors ",,ԾㅂԾ,,"'),
+          duration: 5000,
+          position: 'bottom-right'
         });
       });
   }

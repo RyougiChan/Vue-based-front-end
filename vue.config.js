@@ -1,4 +1,5 @@
 const path = require('path')
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   css: {
@@ -19,6 +20,24 @@ module.exports = {
       patterns: [
         path.resolve(__dirname, 'src/styles/*.scss')
       ]
+    }
+  },
+  configureWebpack: config => {
+    if (process.env.NODE_ENV === 'production') {
+      config.mode = "production";
+      config.optimization.minimizer = [
+        new TerserPlugin({
+          terserOptions: {
+            compress: {
+              warnings: false,
+              drop_console: true, // console
+              pure_funcs: ['window.console','window.console.log','console.log'] // 移除console
+            },
+          },
+        })
+      ];
+    } else {
+      config.mode = "development";
     }
   }
 }

@@ -92,6 +92,7 @@ body {
     padding: 65px 15px;
     position: relative;
     background: theme(dark, 0.8);
+    min-height: 500px;
 
     &:before,
     &:after {

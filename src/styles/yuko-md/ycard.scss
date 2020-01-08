@@ -90,8 +90,13 @@
                 border-radius: 1px;
                 user-select: none;
 
-                &:hover {
+                &:hover,
+                &:focus {
                     background: theme(d-text, 0.1);
+                }
+
+                &:active {
+                    background: theme(d-text, 0.15);
                 }
 
                 > a {

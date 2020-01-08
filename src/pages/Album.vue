@@ -8,7 +8,7 @@
       </div>
       <div id="display-drawer" @click="handleDrawerClick">
         <div id="display-container" class="hide-scrollbar">
-          <img class="display-img" :src="imgDetail.primarySrc" alt="">
+          <img class="display-img" v-loading="loading" :src="imgDetail.primarySrc" alt="">
           <p class="display-desc">
           </p>
           <div class="display-spec">
@@ -57,11 +57,12 @@ export default {
       pics: [],
       pager: {
         total: 0,
-        pageSize: 20,
+        pageSize: 10,
         pageCount: 0,
         currentPage: 1,
       },
-      imgDetail: {}
+      imgDetail: {},
+      loading: true
     }
   },
   components: {
@@ -105,6 +106,13 @@ export default {
       })
       .catch((error) => {
         window.console.log(error);
+        const h = this.$createElement;
+        this.$notify({
+          title: 'ERROR',
+          message: h('i', { style: 'color: #009688'}, 'We are sorry but data missing due to unknown factors ",,ԾㅂԾ,,"'),
+          position: 'bottom-right',
+          duration: 5000
+        });
       });
     },
     handleImgClick(event, { index, value }) {

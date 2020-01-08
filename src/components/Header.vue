@@ -13,7 +13,7 @@
                 class="img-responsive"
               />
             </a>
-            <a class="loke-menu-icon" id="menu-toggle" href="javascript:void(0)">
+            <a class="loke-menu-icon" id="menu-toggle" href="javascript:void(0)" @click="menuToggleHandler">
               <span></span>
               <span></span>
               <span></span>
@@ -21,7 +21,7 @@
           </div>
           <div class="header-menu">
             <div class="menu-top-menu-container">
-              <ul id="menu-top-menu" class="menu" @click="menuClickHandler">
+              <ul id="menu-top-menu" class="menu" @click="menuClickHandler" v-show="showMenu">
                 <li
                   :class="['menu-item', { 'current': item.name.toLowerCase() === activedMenuItem }]"
                   v-for="(item, index) in menuItems"
@@ -86,7 +86,8 @@ export default {
           hasSubMenu: false
         }
       ],
-      activedMenuItem: "home"
+      activedMenuItem: "home",
+      showMenu: true
     };
   },
   methods: {
@@ -95,6 +96,10 @@ export default {
       if(tar && tar.nodeName.toLowerCase() === 'a' && !(tar.parentNode.classList.contains('current'))) {
         this.activedMenuItem = tar.name.toLowerCase();
       }
+      this.showMenu = false;
+    },
+    menuToggleHandler() {
+      this.showMenu = !this.showMenu;
     },
     setActiveMenuItem() {
       let routerPath = this.$router.history.current.path;
@@ -112,11 +117,14 @@ export default {
   },
   watch:{
     $route(){
-      this.setActiveMenuItem()
+      this.setActiveMenuItem();
     }
   },
   created () {
-    this.setActiveMenuItem()
+    this.setActiveMenuItem();
+  },
+  mounted () {
+    this.showMenu = false;
   },
 };
 

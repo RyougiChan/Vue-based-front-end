@@ -71,6 +71,13 @@ export default {
       .catch((error) => {
         window.console.log(error);
         this.$refs.waterfall.waterfallOver();
+        const h = this.$createElement;
+        this.$notify({
+          title: 'ERROR',
+          message: h('i', { style: 'color: #009688'}, 'We are sorry but data missing due to unknown factors ",,ԾㅂԾ,,"'),
+          position: 'bottom-right',
+          duration: 5000
+        });
       });
     },
     handleImgClick(event, { index, value }) {
