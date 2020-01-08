@@ -181,13 +181,17 @@ header {
             }
 
             .header-menu {
-                // height: 0;
+                height: 0;
                 width: 100%;
                 max-width: 100%;
                 padding: 0 22px!important;
                 overflow: hidden;
                 -webkit-transition: all .5s ease-in-out;
                 transition: all .5s ease-in-out;
+                
+                &.open {
+                    height: 218px;
+                }
 
                 ul {
                     text-align: left;

@@ -21,7 +21,7 @@
           </div>
           <div class="header-menu">
             <div class="menu-top-menu-container">
-              <ul id="menu-top-menu" class="menu" @click="menuClickHandler" v-show="showMenu">
+              <ul id="menu-top-menu" class="menu" @click="menuClickHandler">
                 <li
                   :class="['menu-item', { 'current': item.name.toLowerCase() === activedMenuItem }]"
                   v-for="(item, index) in menuItems"
@@ -87,7 +87,7 @@ export default {
         }
       ],
       activedMenuItem: "home",
-      showMenu: true
+      menu: undefined
     };
   },
   methods: {
@@ -96,10 +96,11 @@ export default {
       if(tar && tar.nodeName.toLowerCase() === 'a' && !(tar.parentNode.classList.contains('current'))) {
         this.activedMenuItem = tar.name.toLowerCase();
       }
-      this.showMenu = false;
     },
     menuToggleHandler() {
-      this.showMenu = !this.showMenu;
+      let menu = document.querySelector('.header-menu');
+      if(menu.classList.contains('open')) menu.classList.remove('open');
+      else menu.classList.add('open');
     },
     setActiveMenuItem() {
       let routerPath = this.$router.history.current.path;
@@ -122,9 +123,6 @@ export default {
   },
   created () {
     this.setActiveMenuItem();
-  },
-  mounted () {
-    this.showMenu = false;
   },
 };
 
