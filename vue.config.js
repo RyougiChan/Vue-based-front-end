@@ -31,7 +31,7 @@ module.exports = {
       'vue-router': 'VueRouter',
       'vuex': 'Vuex',
       'axios': 'axios',
-      'highlight.js': 'highlight.js'
+      // 'highlight.js': 'highlight.js'
     };
 
     if (process.env.NODE_ENV === 'production') {
@@ -87,7 +87,7 @@ module.exports = {
     const cdn = {
       css: [
         // "//unpkg.com/element-ui/lib/theme-chalk/index.css",
-        "//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css"
+        // "//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css"
       ],
       js: [
         "//unpkg.com/vue@2.6.10/dist/vue.min.js", 
@@ -95,7 +95,7 @@ module.exports = {
         "//unpkg.com/vuex@3.1.2/dist/vuex.min.js",
         "//unpkg.com/axios@0.19.0/dist/axios.min.js",
         // "//unpkg.com/element-ui@2.13.0/lib/index.js",
-        "//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"
+        // "//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"
       ]
     };
 

@@ -7,8 +7,8 @@
         </vue-waterfall-easy>
       </div>
       <div id="display-drawer" @click="handleDrawerClick">
-        <div id="display-container" class="hide-scrollbar">
-          <img class="display-img" v-loading="loading" :src="imgDetail.primarySrc" alt="">
+        <div id="display-container" v-loading="loading" class="hide-scrollbar">
+          <img class="display-img" :src="imgDetail.primarySrc" alt="">
           <p class="display-desc">
           </p>
           <div class="display-spec">
@@ -116,10 +116,14 @@ export default {
       });
     },
     handleImgClick(event, { index, value }) {
+      this.loading = true;
       window.console.log(index, value);
       document.getElementById('display-container').style.marginLeft = (event.x > window.document.documentElement.clientWidth * 0.4) ? 0 : '40%';
       document.getElementById('display-drawer').style.left = 0;
       this.imgDetail = value;
+      setTimeout(() => {
+        this.loading = false;
+      }, 1200)
     },
     handleDrawerClick(event) {
       if(event.target === document.getElementById('display-drawer')) {
