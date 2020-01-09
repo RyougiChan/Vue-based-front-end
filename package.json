@@ -2,6 +2,7 @@
   "name": "vue-based-front-end",
   "version": "0.1.0",
   "private": true,
+  "homepage":"https://ryougichan.github.io",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
