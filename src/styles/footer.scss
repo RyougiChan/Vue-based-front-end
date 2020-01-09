@@ -4,3 +4,11 @@ footer {
     padding-bottom: 30px;
     text-align: center;
 }
+
+@media screen and(max-width: 400px) {
+    footer {
+        > a {
+            display: block;
+        }
+    }
+}

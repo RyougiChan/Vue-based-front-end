@@ -22,11 +22,27 @@ import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
 
 export default {
+  data() {
+    return {
+      loadingInstance: undefined
+    }
+  },
   name: 'app',
   components: {
     Header,
     Footer
-  }
+  },
+  created () {
+    this.loadingInstance = this.$loading({
+      lock: true,
+      text: "Wait a minutes, we are fetching data from remote server.",
+      spinner: "el-icon-loading",
+      background: "rgba(255, 255, 255, 1.0)"
+    });
+  },
+  mounted () {
+    this.loadingInstance.close();
+  },
 }
 </script>
 

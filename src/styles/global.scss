@@ -287,7 +287,7 @@ body {
                     position: absolute;
                     top: 50%;
                     right: 0;
-                    padding: 20px 50px 15px 20px;
+                    padding: 20px 50px 20px 20px;
                     background: theme(primary);
                     max-width: 350px;
                     transform: translateY(-50%);
@@ -301,6 +301,16 @@ body {
                         transform: translateY(-40%);
                         font-size: 20px;
                         font-weight: 100;
+                    }
+
+                    h2 {
+                        margin: 0;
+                    }
+                }
+
+                &.left {
+                    .floating-button {
+                        left: 0;
                     }
                 }
             }
@@ -376,6 +386,24 @@ body {
                         transform: translateY(-50%);
                         font-size: 32px;
                         font-weight: 100;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and(max-width: 400px) {
+    
+    #main-container {
+        .flex-section {
+            .content-section {
+                .floating-button {
+                    width: fit-content;
+                    
+                    h2 {
+                        font-size: 1.8rem;
                     }
                 }
             }
