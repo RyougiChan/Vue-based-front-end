@@ -1,17 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '@/pages/Home'
-import Article from '@/pages/Article'
-import ArticleContent from '@/pages/ArticleContent'
-import Project from '@/pages/Project'
-import ProjectList from '@/pages/ProjectList'
-import ProjectContent from '@/pages/ProjectContent'
-import Gallery from '@/pages/Gallery'
-import GalleryList from '@/pages/GalleryList'
-import Design from '@/pages/Design'
-import Album from '@/pages/Album'
-import About from '@/pages/About'
 import store from '../store'
+const Home = () => import('@/pages/Home')
+const Article = () => import('@/pages/Article')
+const ArticleContent = () => import('@/pages/ArticleContent')
+const Project = () => import('@/pages/Project')
+const ProjectList = () => import('@/pages/ProjectList')
+const ProjectContent = () => import('@/pages/ProjectContent')
+const Gallery = () => import('@/pages/Gallery')
+const GalleryList = () => import('@/pages/GalleryList')
+const Design = () => import('@/pages/Design')
+const Album = () => import('@/pages/Album')
+const About = () => import('@/pages/About')
 
 Vue.use(VueRouter)
 
