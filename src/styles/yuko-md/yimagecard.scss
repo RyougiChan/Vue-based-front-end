@@ -19,6 +19,7 @@
         position: relative;
         margin-top: 12px;
         overflow: hidden;
+        color: theme(dark, 0.9);
 
         &:hover {
             box-shadow: theme(d-text, 0.5) 0px 0px 20px 2px;

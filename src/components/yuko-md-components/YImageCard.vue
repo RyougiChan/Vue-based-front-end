@@ -5,7 +5,7 @@
         <h4>{{ title }}</h4>
       </div>
       <div class="yuko-imgcard_info">
-        <p>{{ abstract }}</p>
+        <p v-html="abstract"></p>
       </div>
       <div class="yuko-imgcard_content">
         <a :href="link">
@@ -13,9 +13,7 @@
             <img :src="imgLink" />
           </div>
           <div class="yuko-imgcard_content-text">
-            <p>
-              {{ description }}
-            </p>
+            <p v-html="description"></p>
           </div>
         </a>
       </div>
