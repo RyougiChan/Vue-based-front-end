@@ -21,7 +21,8 @@ export default {
   },
   data() {
     return {
-      showBackButtonElement: false
+      showBackButtonElement: false,
+      a: 0
     }
   },
   methods: {
