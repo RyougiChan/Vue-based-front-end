@@ -2,7 +2,7 @@
   "name": "vue-based-front-end",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://ryougichan.github.io",
+  "homepage": "https://ryougichan.github.io",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -23,6 +23,7 @@
     "element-ui": "^2.13.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "highlight.js": "^9.17.1",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "node-sass": "^4.13.0",

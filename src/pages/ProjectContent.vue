@@ -1,13 +1,13 @@
 <template>
   <div id="md-component" class="y-project">
-    <FullScreenFrame v-if="project.src !== ''" :src="project.src" />
+    <FullScreenFrame v-if="project.src && project.src.trim() !== ''" :src="project.src" />
     <div id="main-container">
       <div class="content-section">
         <h4>{{ title }}</h4>
         <p>
           <img :src="project.coverUrl" :alt="project.name" />
         </p>
-        <p>{{ project.content }}</p>
+        <p v-html="project.content"></p>
       </div>
     </div>
   </div>
@@ -57,25 +57,29 @@ export default {
           this.project.title = project.title;
           this.project.content = project.content;
           this.project.coverUrl = process.env.VUE_APP_IMGURL + project.coverUrl;
-          axios
-            .get(project.externalUrl)
-            .then(() => {
-              this.loadingInstance.close();
-            })
-            .catch(() => {
-              this.loadingInstance.close();
-              const h = this.$createElement;
-              this.$notify({
-                title: "ERROR",
-                message: h(
-                  "i",
-                  { style: "color: #009688" },
-                  "We are sorry but we cannot initialize frame content"
-                ),
-                position: 'bottom-right',
-                duration: 5000
+          if (project.externalUrl && project.externalUrl.trim() !== "") {
+            axios
+              .get(project.externalUrl)
+              .then(() => {
+                this.loadingInstance.close();
+              })
+              .catch(() => {
+                this.loadingInstance.close();
+                const h = this.$createElement;
+                this.$notify({
+                  title: "ERROR",
+                  message: h(
+                    "i",
+                    { style: "color: #009688" },
+                    "We are sorry but we cannot initialize frame content"
+                  ),
+                  position: "bottom-right",
+                  duration: 5000
+                });
               });
-            });
+          } else {
+            this.loadingInstance.close()
+          }
         }
       })
       .catch(message => {
@@ -83,9 +87,13 @@ export default {
         const h = this.$createElement;
         this.$notify({
           title: "ERROR",
-          message: h('i', { style: 'color: #009688'}, 'We are sorry but data missing due to unknown factors ",,ԾㅂԾ,,"'),
+          message: h(
+            "i",
+            { style: "color: #009688" },
+            'We are sorry but data missing due to unknown factors ",,ԾㅂԾ,,"'
+          ),
           duration: 5000,
-          position: 'bottom-right'
+          position: "bottom-right"
         });
       });
   }
