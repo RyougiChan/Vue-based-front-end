@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <transition name="translate">
-      <router-view></router-view>
+      <keep-alive exclude="ArticleContent">
+        <router-view></router-view>
+      </keep-alive>
     </transition>
     <div class="return-button" @click="historyBack" v-show="showBackButtonElement">
       <i class="material-icons">arrow_back</i>
@@ -14,8 +16,7 @@
 export default {
   name: 'app',
   watch:{
-    $route(to, from){
-      window.previousRoute = from;
+    $route(){
       this.showBackButtonElement = (this.$router.history.current.path != '/');
     }
   },
