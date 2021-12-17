@@ -2,13 +2,13 @@
 
 ## Overview
 
-Technology stack migration for personal website, from **.NET Core MVC** to **SpringBoot + Vue**. This repository is the Front-End code and records for  this migration. Domain name change from [ryougichan.com](#) to [cirnon.com](https://cirnon.com).
+Technology stack migration for personal website, from **.NET Core MVC** to **SpringBoot + Vue**. This repository is the Front-End code and records for  this migration. Domain name change from [ryougichan.com](#) to [kaga.fun](https://kaga.fun).
 
 ## Contrast
 
 |    | Before   | After   |
 | -: | :------: | :-----: |
-| Domain | ryougichan.com | cirnon.com |
+| Domain | ryougichan.com | kaga.fun |
 | Display Tech | ASP.NET Razor + HTML | Vue + HTML |
 | Server Support | C#(.NET Core) | Java(SpringBoot) |
 | API Design | Coupling with MVC | RESTful style API |
