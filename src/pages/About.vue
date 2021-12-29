@@ -1,23 +1,25 @@
 <template>
   <div id="article">
-    <Header />
+    <Header  v-on:log="log($event)"/>
     <div id="main-container">
         <div class="content-section text-align-center">
           <h5>
             INTRO
           </h5>
           <p>
-            I'm Jionghuan Zhang from China, or you can call me <strong>John</strong>.
+            I'm Jionghuan Zhang from China, or you can call me <strong>Ivan</strong>.
             <br>
             I'm a <strong>Web Developer</strong> employed by <strong>TP-LINK</strong> Technologies Company, 
             <br>
             a global provider of networking devices and accessories.
+            <br>
+            I am a amateur photographer at the same time.
           </p>
           <h5>
             HOBBY
           </h5>
           <p>
-            I like listening to <strong>music</strong>, <strong>reading</strong>, <strong>painting</strong> and <strong>hiking</strong>. 
+            I like listening to <strong>music</strong>, <strong>photographing</strong>, <strong>painting</strong> and <strong>hiking</strong>. 
             <br>
             Sometimes, I also <strong>play games</strong> with friends on the Steam platform.
             <br>
@@ -57,6 +59,11 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 export default {
+  methods: {
+    log(e) {
+      window.console.log('log', e);
+    }
+  },
   components: {
     Header,
     Footer
